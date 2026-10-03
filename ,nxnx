@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<title>🔒 Mi secreto</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        margin: 0;
+        min-height: 100%;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        overflow: hidden;
+        font-family: "Courier New", monospace;
+
+        background: linear-gradient(
+            135deg,
+            #ff006e,
+            #8338ec,
+            #3a86ff,
+            #06d6a0,
+            #ffbe0b,
+            #fb5607
+        );
+        background-size: 500% 500%;
+        animation: colores 9s ease infinite;
+    }
+
+    @keyframes colores {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .pantalla {
+        width: min(900px, 94vw);
+        padding: clamp(25px, 6vw, 55px) clamp(18px, 5vw, 45px);
+        text-align: center;
+        background: #111;
+        border: 7px solid #fff;
+        box-shadow:
+            12px 12px 0 #000,
+            0 0 35px rgba(255,255,255,.45);
+        color: white;
+        position: relative;
+        z-index: 2;
+    }
+
+    .titulo {
+        margin: 0 0 30px;
+        color: #00ff66;
+        font-size: clamp(14px, 3vw, 20px);
+        letter-spacing: 3px;
+        text-shadow: 2px 2px 0 #064;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: clamp(21px, 5vw, 43px);
+        line-height: 1.45;
+        text-shadow:
+            4px 4px 0 #ff006e,
+            8px 8px 0 #8338ec;
+        animation: parpadeo 1.6s infinite alternate;
+    }
+
+    @keyframes parpadeo {
+        from { opacity: 1; }
+        to { opacity: .82; }
+    }
+
+    .papas {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 13px 20px;
+        color: #111;
+        background: #ffbe0b;
+        border: 5px solid white;
+        box-shadow: 7px 7px 0 #ff006e;
+        font-size: clamp(17px, 4vw, 24px);
+        font-weight: bold;
+    }
+
+    .scanlines {
+        pointer-events: none;
+        position: fixed;
+        inset: 0;
+        z-index: 5;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.035) 0px,
+            rgba(255,255,255,.035) 2px,
+            transparent 2px,
+            transparent 5px
+        );
+    }
+
+    .pixel {
+        position: fixed;
+        width: 12px;
+        height: 12px;
+        background: white;
+        opacity: .65;
+        animation: flotar 4s infinite ease-in-out;
+    }
+
+    .p1 { top: 10%; left: 8%; }
+    .p2 { top: 75%; left: 12%; animation-delay: 1s; }
+    .p3 { top: 18%; right: 10%; animation-delay: 2s; }
+    .p4 { bottom: 10%; right: 8%; animation-delay: 3s; }
+
+    @keyframes flotar {
+        0%,100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-18px) rotate(90deg); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="pixel p1"></div>
+<div class="pixel p2"></div>
+<div class="pixel p3"></div>
+<div class="pixel p4"></div>
+
+<main class="pantalla">
+    <div class="titulo">★ SECRET MESSAGE ★</div>
+
+    <h1>
+        Cómo lograste entrar a mi secreto<br>
+        bueno mi secreto es que me gustan<br>
+        las papas con queso 👍
+    </h1>
+
+    <div class="papas">🥔 + 🧀 = ❤️</div>
+</main>
+
+<div class="scanlines"></div>
+
+</body>
+</html>
